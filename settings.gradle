@@ -1,0 +1,2 @@
+rootProject.name = "AlienSolarSystem"
+include ':app'
