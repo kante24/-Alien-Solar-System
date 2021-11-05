@@ -39,7 +39,7 @@ public class Espace extends View {
         //Création planètes
         for (int i=0;i<10;i++)
         {
-            AstresCelestes temp = new AstresCelestes();
+            AstresCelestes temp = new AstresCelestes(myContext);
             planetes [i] = temp;
         }
     }
@@ -47,13 +47,13 @@ public class Espace extends View {
     @Override
     protected void onDraw(Canvas canvas)
     {
-        //Redimentionnage du vaisseau
+        //Redimention du vaisseau
         fusee = Bitmap.createScaledBitmap(fusee, 500, 500, true);
-        canvas.drawBitmap(fusee, posXFusee, posYFusee, null);  //va dessiner la balle noir
+        canvas.drawBitmap(fusee, posXFusee, posYFusee, null);  //va dessiner le vaisseau
 
         for (int i=0;i<10;i++)
         {
-            planetes [i].onDraw(canvas);
+            planetes [i].draw(canvas);
         }
 
 
@@ -85,6 +85,9 @@ public class Espace extends View {
                 //Positionner le vaisseau sur le curseur
                 posXFusee = (int)event.getX();
                 posYFusee = (int)event.getY();
+//                Toast.makeText(myContext,"x fusee = " + posXFusee + "y fusee = " + posYFusee,Toast.LENGTH_LONG).show();
+//                Toast.makeText(myContext,"x = " + event.getX() + "y = " + event.getY(),Toast.LENGTH_LONG).show();
+
 
                 for(int i =0;i<10;i++)
                 {
