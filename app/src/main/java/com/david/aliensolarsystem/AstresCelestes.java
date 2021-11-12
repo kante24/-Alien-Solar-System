@@ -17,13 +17,15 @@ public class AstresCelestes extends View
     private Random aleatoire;
     private boolean status;
 
-    private Bitmap venus = BitmapFactory.decodeResource(getResources(),R.drawable.venus);
-    private Bitmap jupiter = BitmapFactory.decodeResource(getResources(),R.drawable.jupiter);
-    private Bitmap earth = BitmapFactory.decodeResource(getResources(),R.drawable.earthe);
-    private Bitmap pluton = BitmapFactory.decodeResource(getResources(),R.drawable.pluton);
+    private classAstres venus = new classAstres("venus", "jaune", 100, true, BitmapFactory.decodeResource(getResources(),R.drawable.venus));
+    private classAstres jupiter = new classAstres("jupiter", "rouge_blanc", 100, true, BitmapFactory.decodeResource(getResources(),R.drawable.jupiter));
+    private classAstres earth = new classAstres("earth", "bleu", 100, true, BitmapFactory.decodeResource(getResources(),R.drawable.earthe));
+    private classAstres pluton = new classAstres("pluton", "rouge", 100, true, BitmapFactory.decodeResource(getResources(),R.drawable.pluton));
+
+
     private Bitmap planete;
 
-    private  final Bitmap[] planetes = {venus, jupiter, earth, pluton };
+    private  final Bitmap[] planetes = {venus.getImage(), jupiter.getImage(), earth.getImage(), pluton.getImage() };
 
 
     public AstresCelestes(Context context) {
@@ -56,8 +58,7 @@ public class AstresCelestes extends View
 
     public int getPosY()
     {
-        return
-                this.positionY;
+        return this.positionY;
     }
 
 

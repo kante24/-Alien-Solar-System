@@ -72,8 +72,8 @@ public class EcranDemarrage extends View {
             case MotionEvent.ACTION_UP:
                 if(playBtnState)
                 {
-                    Intent gameIntent = new Intent(MyContext,DebutJeu.class);
-                    MyContext.startActivity(gameIntent);
+                    Intent choixIntent = new Intent(MyContext,DebutJeu.class);
+                    MyContext.startActivity(choixIntent);
                 }
                 playBtnState = false;
 

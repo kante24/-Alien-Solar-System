@@ -17,7 +17,7 @@ public class Espace extends View {
     private Bitmap fusee;
     private int posXFusee;
     private int posYFusee;
-    private AstresCelestes[] planetes = new AstresCelestes[10];  //création planètes
+    private AstresCelestes[] planetes = new AstresCelestes[05];  //création planètes
     private int cnt;
     private Context myContext;
     private boolean fin;
@@ -37,7 +37,7 @@ public class Espace extends View {
         posXFusee = aleatoire.nextInt(500);
 
         //Création planètes
-        for (int i=0;i<10;i++)
+        for (int i=0;i<5;i++)
         {
             AstresCelestes temp = new AstresCelestes(myContext);
             planetes [i] = temp;
@@ -51,14 +51,14 @@ public class Espace extends View {
         fusee = Bitmap.createScaledBitmap(fusee, 500, 500, true);
         canvas.drawBitmap(fusee, posXFusee, posYFusee, null);  //va dessiner le vaisseau
 
-        for (int i=0;i<10;i++)
+        for (int i=0;i<5;i++)
         {
             planetes [i].draw(canvas);
         }
 
 
         //Fin de la partie
-        if(cnt>=10 && !fin)
+        if(cnt>=5 && !fin)
         {
             Toast.makeText(myContext,"Vous avez colonisé toutes les planètes habitables",Toast.LENGTH_LONG).show();
             fin = true;
@@ -89,7 +89,7 @@ public class Espace extends View {
 //                Toast.makeText(myContext,"x = " + event.getX() + "y = " + event.getY(),Toast.LENGTH_LONG).show();
 
 
-                for(int i =0;i<10;i++)
+                for(int i =0;i<5;i++)
                 {
 
                     limiteGauche = posXFusee > (planetes[i].getPosX()-30);
@@ -103,6 +103,7 @@ public class Espace extends View {
                         {
                             planetes[i].setStatus(false);
                             cnt++;
+                            Toast.makeText(myContext,"PLanète colonisée",Toast.LENGTH_LONG).show();
                         }
                         System.out.println(cnt);
                     }
